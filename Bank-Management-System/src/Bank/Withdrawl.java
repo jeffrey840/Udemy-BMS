@@ -20,6 +20,7 @@ public class Withdrawl extends JFrame implements ActionListener{
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l3 = new JLabel(i3);
         l3.setBounds(0, 0, 960, 1080);
+//        add label to the frame
         add(l3);
         
         l1 = new JLabel("MAXIMUM WITHDRAWAL IS RS.10,000");
@@ -72,9 +73,10 @@ public class Withdrawl extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Please enter the Amount to you want to Withdraw");
                 }else{
                     Conn c1 = new Conn();
-                    
+//                    executing the query
                     ResultSet rs = c1.s.executeQuery("select * from bank where pin = '"+pin+"'");
                     int balance = 0;
+//                    adds or subtarvcts from balance
                     while(rs.next()){
                        if(rs.getString("mode").equals("Deposit")){
                            balance += Integer.parseInt(rs.getString("amount"));
@@ -82,6 +84,7 @@ public class Withdrawl extends JFrame implements ActionListener{
                            balance -= Integer.parseInt(rs.getString("amount"));
                        }
                     }
+//                    if iys less than the amount then tyhis will be executed
                     if(balance < Integer.parseInt(amount)){
                         JOptionPane.showMessageDialog(null, "Insuffient Balance");
                         return;
