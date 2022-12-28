@@ -20,12 +20,14 @@ public class FastCash extends JFrame implements ActionListener {
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l3 = new JLabel(i3);
         l3.setBounds(0, 0, 960, 1080);
+//        adding label to frame
         add(l3);
 
         l1 = new JLabel("SELECT WITHDRAWL AMOUNT");
         l1.setForeground(Color.WHITE);
         l1.setFont(new Font("System", Font.BOLD, 16));
 
+//        7 buttons for fast cash
         b1 = new JButton("Rs 100");
         b2 = new JButton("Rs 500");
         b3 = new JButton("Rs 1000");
@@ -79,6 +81,7 @@ public class FastCash extends JFrame implements ActionListener {
         try {
             String amount = ((JButton)ae.getSource()).getText().substring(3); //k
             Conn c = new Conn();
+//            executing query selector
             ResultSet rs = c.s.executeQuery("select * from bank where pin = '"+pin+"'");
             int balance = 0;
             while (rs.next()) {

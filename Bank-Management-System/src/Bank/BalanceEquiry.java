@@ -39,9 +39,11 @@ class BalanceEnquiry extends JFrame implements ActionListener {
         int balance = 0;
         try{
             Conn c1 = new Conn();
+//            executes the query
             ResultSet rs = c1.s.executeQuery("select * from bank where pin = '"+pin+"'");
             while (rs.next()) {
                 if (rs.getString("mode").equals("Deposit")) {
+//                    adding and subtracting in your balance instance
                     balance += Integer.parseInt(rs.getString("amount"));
                 } else {
                     balance -= Integer.parseInt(rs.getString("amount"));
