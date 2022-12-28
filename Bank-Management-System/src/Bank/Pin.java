@@ -13,14 +13,14 @@ public class Pin extends JFrame implements ActionListener{
     JLabel l1,l2,l3;
     String pin;
     Pin(String pin){
-//        setting pin to this current instance
+//🟩        setting pin to this current instance
         this.pin = pin;
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("Bank/icons/atm.jpg"));
         Image i2 = i1.getImage().getScaledInstance(1000, 1180, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
         JLabel l4 = new JLabel(i3);
         l4.setBounds(0, 0, 960, 1080);
-//        adding it to the j frame
+//🟩        adding it to the j frame
         add(l4);
         
         l1 = new JLabel("CHANGE YOUR PIN");
@@ -34,8 +34,8 @@ public class Pin extends JFrame implements ActionListener{
         l3 = new JLabel("Re-Enter New PIN:");
         l3.setFont(new Font("System", Font.BOLD, 16));
         l3.setForeground(Color.WHITE);
-//        t1 and t2 are going to be for changing the pin
-//
+//🟩        t1 and t2 are going to be for changing the pin
+//🟩
         t1 = new JPasswordField();
         t1.setFont(new Font("Raleway", Font.BOLD, 25));
         
@@ -84,33 +84,33 @@ public class Pin extends JFrame implements ActionListener{
             String rpin = t2.getText();
             
             if(!npin.equals(rpin)){
-//                if pin does not match retrun error
+//🟩                if pin does not match retrun error
                 JOptionPane.showMessageDialog(null, "Entered PIN does not match");
                 return;
             }
             
             if(ae.getSource()==b1){
-//                if t1 or t2 are empty retrun error
+//🟩                if t1 or t2 are empty retrun error
                 if (t1.getText().equals("")){
                     JOptionPane.showMessageDialog(null, "Enter New PIN");
                 }
                 if (t2.getText().equals("")){
                     JOptionPane.showMessageDialog(null, "Re-Enter new PIN");
                 }
-//                sets queries
+//🟩                sets queries
                 Conn c1 = new Conn();
                 String q1 = "update bank set pin = '"+rpin+"' where pin = '"+pin+"' ";
                 String q2 = "update login set pin = '"+rpin+"' where pin = '"+pin+"' ";
                 String q3 = "update signup3 set pin = '"+rpin+"' where pin = '"+pin+"' ";
 
-//                executes these queries
+//🟩                executes these queries
                 c1.s.executeUpdate(q1);
                 c1.s.executeUpdate(q2);
                 c1.s.executeUpdate(q3);
 
                 JOptionPane.showMessageDialog(null, "PIN changed successfully");
                 setVisible(false);
-//                moves the control of the program to the new transaction class
+//🟩                moves the control of the program to the new transaction class
 
                 new Transactions(rpin).setVisible(true);
             
@@ -124,7 +124,7 @@ public class Pin extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args){
-//      called new pin class and set the visibility to true
+//🟩      called new pin class and set the visibility to true
         new Pin("").setVisible(true);
     }
 }
