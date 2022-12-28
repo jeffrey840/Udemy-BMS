@@ -33,7 +33,7 @@ public class Transactions extends JFrame implements ActionListener{
         b7 = new JButton("EXIT");
         
         setLayout(null);
-        
+//        setting bounds
         l1.setBounds(235,400,700,35);
         l2.add(l1);
         
@@ -76,7 +76,7 @@ public class Transactions extends JFrame implements ActionListener{
         
         
     }
-    
+//    sets what to do with the pin values
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==b1){ 
             setVisible(false);

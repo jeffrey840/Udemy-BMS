@@ -32,6 +32,7 @@ public class MiniStatement extends JFrame implements ActionListener{
         
         try{
             Conn c = new Conn();
+//            getting  a connection and executing the query
             ResultSet rs = c.s.executeQuery("select * from login where pin = '"+pin+"'");
             while(rs.next()){
                 l3.setText("Card Number:    " + rs.getString("cardno").substring(0, 4) + "XXXXXXXX" + rs.getString("cardno").substring(12));
@@ -43,6 +44,7 @@ public class MiniStatement extends JFrame implements ActionListener{
             Conn c1  = new Conn();
             ResultSet rs = c1.s.executeQuery("SELECT * FROM bank where pin = '"+pin+"'");
             while(rs.next()){
+//                the "&nbps" if for the pace in the html tag
                 l1.setText(l1.getText() + "<html>"+rs.getString("date")+ "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("mode") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("amount") + "<br><br><html>");
                 if(rs.getString("mode").equals("Deposit")){
                     balance += Integer.parseInt(rs.getString("amount"));
@@ -69,6 +71,7 @@ public class MiniStatement extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
+//        calling ministatement
         new MiniStatement("").setVisible(true);
     }
     
