@@ -1,2 +1,0 @@
-Bank.BalanceEnquiry
-ASimulatorSystem.BalanceEnquiry

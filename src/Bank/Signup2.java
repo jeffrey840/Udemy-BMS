@@ -122,7 +122,7 @@ public class Signup2 extends JFrame implements ActionListener{
         
         setLayout(null);
         
-//🟩        setting locations and size for all the labels
+        
         l12.setBounds(700,10,60,30);
         add(l12);
         
@@ -208,7 +208,6 @@ public class Signup2 extends JFrame implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent ae){
-//🟩        setting to string
         String religion = (String)c1.getSelectedItem(); 
         String category = (String)c2.getSelectedItem();
         String income = (String)c3.getSelectedItem();
@@ -238,10 +237,9 @@ public class Signup2 extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Fill all the required fields");
             }else{
                 Conn c1 = new Conn();
-//🟩                cretes a string and sets it to c1
                 String q1 = "insert into signup2 values('"+formno+"','"+religion+"','"+category+"','"+income+"','"+education+"','"+occupation+"','"+pan+"','"+aadhar+"','"+scitizen+"','"+eaccount+"')";
                 c1.s.executeUpdate(q1);
-//🟩                move the controll of the prpgram tpo signup3
+                
                 new Signup3(formno).setVisible(true);
                 setVisible(false);
             }
@@ -254,6 +252,8 @@ public class Signup2 extends JFrame implements ActionListener{
     
                
     }
+    
+    
     public static void main(String[] args){
         new Signup2("").setVisible(true);
     }

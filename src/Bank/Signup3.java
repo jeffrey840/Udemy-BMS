@@ -116,7 +116,7 @@ public class Signup3 extends JFrame implements ActionListener{
         r4 = new JRadioButton("Recurring Deposit Account");
         r4.setFont(new Font("Raleway", Font.BOLD, 16));
         r4.setBackground(Color.WHITE);
-// 🟩       grouped all theses buttons into group gender
+        
         ButtonGroup groupgender = new ButtonGroup();
         groupgender.add(r1);
         groupgender.add(r2);
@@ -124,7 +124,7 @@ public class Signup3 extends JFrame implements ActionListener{
         groupgender.add(r4);
         
         setLayout(null);
-// 🟩       scaled the position
+        
         l11.setBounds(700,10,70,30);
         add(l11);
         
@@ -200,13 +200,13 @@ public class Signup3 extends JFrame implements ActionListener{
         b2.setBounds(420,720,100,30);
         add(b2);
         
-// 🟩       set the packground to white
+        
         getContentPane().setBackground(Color.WHITE);
         
         setSize(850,850);
         setLocation(500,120);
         setVisible(true);
-// 🟩       added action listeners to b1,b2
+        
         b1.addActionListener(this);
         b2.addActionListener(this);
         
@@ -214,7 +214,6 @@ public class Signup3 extends JFrame implements ActionListener{
     
     public void actionPerformed(ActionEvent ae){
         String atype = null;
-// 🟩       determised the account type
         if(r1.isSelected()){ 
             atype = "Saving Account";
         }
@@ -226,15 +225,14 @@ public class Signup3 extends JFrame implements ActionListener{
         }else if(r4.isSelected()){ 
             atype = "Recurring Deposit Account";
         }
-// 🟩       generates random card #
+        
         Random ran = new Random();
         long first7 = (ran.nextLong() % 90000000L) + 5040936000000000L;
         String cardno = "" + Math.abs(first7);
         
         long first3 = (ran.nextLong() % 9000L) + 1000L;
         String pin = "" + Math.abs(first3);
-
-// 🟩       all of these will be within the facility string
+        
         String facility = "";
         if(c1.isSelected()){ 
             facility = facility + " ATM Card";
@@ -261,9 +259,7 @@ public class Signup3 extends JFrame implements ActionListener{
                 if(atype.equals("")){
                     JOptionPane.showMessageDialog(null, "Fill all the required fields");
                 }else{
-// 🟩                   executes 2 queries
                     Conn c1 = new Conn();
-// 🟩                   inserts data in your login table and your signup3
                     String q1 = "insert into signup3 values('"+formno+"','"+atype+"','"+cardno+"','"+pin+"','"+facility+"')";  
                     String q2 = "insert into login values('"+formno+"','"+cardno+"','"+pin+"')";
                     c1.s.executeUpdate(q1);
@@ -273,7 +269,7 @@ public class Signup3 extends JFrame implements ActionListener{
                     new Deposit(pin).setVisible(true);
                     setVisible(false);
                 }
-// 🟩           if the source of the button is b2 the program will close
+            
             }else if(ae.getSource()==b2){
                 System.exit(0);
             }
@@ -285,7 +281,6 @@ public class Signup3 extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
-// 🟩       calling new signup 3 with null values  and set the visibility to true
         new Signup3("").setVisible(true);
     }
     

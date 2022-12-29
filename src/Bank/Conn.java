@@ -6,15 +6,9 @@ public class Conn{
     Connection c;
     Statement s;
     public Conn(){  
-        try{
-//            forname will load the driver
-//            needs mysql connetion library
-            Class.forName("com.mysql.jdbc.Driver");
-//            location of database
-//            root is the usernme of the client
-//            pw
+        try{  
+            Class.forName("com.mysql.jdbc.Driver");  
             c =DriverManager.getConnection("jdbc:mysql:///bms","root","codeup");
-//            passes queries
             s =c.createStatement(); 
            
           

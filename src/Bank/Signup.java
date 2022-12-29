@@ -76,7 +76,7 @@ public class Signup extends JFrame implements ActionListener{
         l15 = new JLabel("Year");
         l15.setFont(new Font("Raleway", Font.BOLD, 14));
         
-//        all textfields will have the similar font size
+        
         t1 = new JTextField();
         t1.setFont(new Font("Raleway", Font.BOLD, 14));
         
@@ -99,7 +99,7 @@ public class Signup extends JFrame implements ActionListener{
         t7.setFont(new Font("Raleway", Font.BOLD, 14));
         
        
-//        defined 3 buttons
+        
         b = new JButton("Next");
         b.setFont(new Font("Raleway", Font.BOLD, 14));
         b.setBackground(Color.BLACK);
@@ -162,8 +162,7 @@ public class Signup extends JFrame implements ActionListener{
         add(l5);
         
         dateChooser.setBounds(300, 240, 400, 30);
-//        defined the location for the textfield and the labels
-
+        
         l6.setBounds(100,290,200,30);
         add(l6);
         
@@ -223,15 +222,14 @@ public class Signup extends JFrame implements ActionListener{
         b.addActionListener(this); 
         
         getContentPane().setBackground(Color.WHITE);
-//        setting size of the jframe
+        
         setSize(850,800);
         setLocation(500,120);
         setVisible(true);
     }
     
     public void actionPerformed(ActionEvent ae){
-//        first will be the form # value
-//        fetching details and setting the values
+        
         String formno = first;
         String name = t1.getText();
         String fname = t2.getText();
@@ -258,18 +256,16 @@ public class Signup extends JFrame implements ActionListener{
         String pincode = t6.getText();
         String state = t7.getText();
         
-//        if pincode is null return th statement
+
         try{
            
             if(t6.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Fill all the required fields");
             }else{
                 Conn c1 = new Conn();
-//                calling this query
                 String q1 = "insert into signup values('"+formno+"','"+name+"','"+fname+"','"+dob+"','"+gender+"','"+email+"','"+marital+"','"+address+"','"+city+"','"+pincode+"','"+state+"')";
-//                executing this query
                 c1.s.executeUpdate(q1);
-//                whne the first sign up is conpleted the signup2 will be called
+                
                 new Signup2(first).setVisible(true);
                 setVisible(false);
             }
@@ -280,8 +276,7 @@ public class Signup extends JFrame implements ActionListener{
         
     }
     
-
-//    initializing the fisrt instance of the class and setting the visibility to true
+    
     public static void main(String[] args){
         new Signup().setVisible(true);
     }
